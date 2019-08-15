@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQuery</title>
+    <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous">
+    </script>
+    <style>
+        #container{
+            width: 300px;
+            height: 300px;
+            border: 1px solid #333;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+   <script>
+     $(function(){
+        $("#textbox").keypress(function(event){
+            if(event.which == 13){
+                if($("#enter").prop("checked")){
+                    $('#btn').click();
+                    event.preventDefault();
+                }
+            }
+        });
+
+        $('#btn').click(function(){
+            var msg = $('#textbox').val();
+
+            $('#textbox').val("");
+
+            var prevState = $("#container").html();
+
+            $('#container').html(prevState + "<br/>" + msg);
+        });
+       
+     });
+   </script>
+   <div>
+       <h2>ChatBot</h2>
+   </div>
+<div id="container">
+
+</div>
+<div id="controls">
+    <input type="checkbox" id="enter" checked>
+    <textarea name="" id="textbox" cols="30" rows="2" placeholder="press enter to send"></textarea>
+    <button id="btn">Send</button>
+    
+</div>
+
+ 
+</body>
+</html>
