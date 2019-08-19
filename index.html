@@ -10,70 +10,18 @@
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
         crossorigin="anonymous">
     </script>
-    <style>
-        #container{
-            width: 300px;
-            height: 300px;
-            border: 1px solid #333;
-            margin-bottom: 10px;
-            overflow: scroll;
-        }
-        .username {
-            color: red;
-            font-weight: bold;
-        }
-
-        .bot {
-            color: blue;
-            font-weight: bold;
-        }
-    </style>
+    <script type="text/javascript" src="js/script.js"></script>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-   <script>
-       function username(){
-        $('#container').html("<span class='bot'>Chatbot: </span>Hi, what's your name?");
-       }
-     $(function(){
-        username();
-
-        $("#textbox").keypress(function(event){
-            if(event.which == 13){
-                if($("#enter").prop("checked")){
-                    $('#btn').click();
-                    event.preventDefault();
-                }
-            }
-        });
-
-        $('#btn').click(function(){
-            var username = "<span class='username'>You: </span>"
-            var msg = $('#textbox').val();
-
-            $('#textbox').val("");
-
-            var prevState = $("#container").html();
-
-            $('#container').html(prevState  + "<br/>" + username  + msg);
-
-            $('#container').scrollTop($("#container").prop("scrollHeight"));
-        });
-       
-     });
-   </script>
    <div>
        <h2>ChatBot</h2>
    </div>
-<div id="container">
-
-</div>
+<div id="container"></div>
 <div id="controls">
     <input type="checkbox" id="enter" checked>
     <textarea name="" id="textbox" cols="30" rows="2" placeholder="press enter to send"></textarea>
-    <button id="btn">Send</button>
-    
+    <button id="btn">Send</button>   
 </div>
-
- 
 </body>
 </html>
