@@ -20,12 +20,23 @@
         }
         .username {
             color: red;
+            font-weight: bold;
+        }
+
+        .bot {
+            color: blue;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
    <script>
+       function username(){
+        $('#container').html("<span class='bot'>Chatbot: </span>Hi, what's your name?");
+       }
      $(function(){
+        username();
+
         $("#textbox").keypress(function(event){
             if(event.which == 13){
                 if($("#enter").prop("checked")){
